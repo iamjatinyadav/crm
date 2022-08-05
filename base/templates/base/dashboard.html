@@ -17,6 +17,12 @@
                     <th>Customer</th>
                     <th>Orders</th>
                 </tr>
+                {% for customer in customers %}
+                <tr>
+                    <th><a href="{% url 'customer' customer.id %}">View</th>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.order}}</td>
+                {% endfor %}
             </table>
         </div>
     </div>
@@ -35,6 +41,15 @@
                     <th>Update</th>
                     <th>Remove</th>
                 </tr>
+                {% for order in orders %}
+                <tr>
+                    <th></th>
+                    <td>{{order.product}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td><button type="button" class="btn btn-warning">Update</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                {% endfor %}
             </table>
         </div>
     </div>
